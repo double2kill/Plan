@@ -1,0 +1,33 @@
+class LevelsController < ApplicationController
+  def index
+  end
+
+  def create
+    if params[:name]
+      if Level.find_by(name: params[:name])
+        if params[:yourlevel] > "3"
+          render plain: "Hi," + params[:name] + "your level:" + params[:yourlevel]
+        else
+          render plain: "Hi," + params[:name] + ",your level:" + "3"
+        end
+      else
+        @level = Level.new
+        @level.name = params[:name]
+        @level.save
+        render plain: "hello," + params[:name] + ",you are first on this website,your level is 1"
+      end
+    else
+      destroyFirstOne
+      @levelf = Level.first
+      render plain: "the name in Level.first now is " + @levelf.name
+    end
+  end
+  
+  private
+  
+  def destroyFirstOne
+    @level_f = Level.first
+    @level_f.destroy  
+  end
+
+end

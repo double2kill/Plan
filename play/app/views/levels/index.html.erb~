@@ -1,0 +1,16 @@
+<h1>hello</h1>
+
+<%= form_tag("", method: "post") do %>
+  <%= label_tag(:name, "name") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:level, "level") %>
+  <%= text_field_tag(:yourlevel) %>
+  <%= submit_tag("submit") %>
+<% end %>
+
+<%= form_for :article do |f| %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+

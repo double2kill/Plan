@@ -1,0 +1,25 @@
+<h1>hello</h1>
+
+<%= form_tag("", method: "post") do %>
+  <%= label_tag(:name, "name") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:yourlevel, "level") %>
+  <%= text_field_tag(:yourlevel) %>
+  <%= submit_tag("submit") %>
+<% end %>
+
+<%= form_tag("", method: "post") do %>
+  <%= submit_tag("delete first name") %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @levels.each do |level| %>
+    <tr>
+      <td><%= level.name %></td>
+    </tr>
+  <% end %>
+</table>
